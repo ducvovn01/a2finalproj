@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="description" content="Browse the nine movies now showing at CineSpark with age ratings, running times, sessions and ticket prices.">
+    <meta name="author" content="Quang Phu Duc Vo">
+    <title>Now Showing | CineSpark</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- ===================== SITE HEADER & NAVIGATION ===================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">
+                <img src="images/logo.png" alt="CineSpark home" width="360" height="96">
+            </a>
+            <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-icon" aria-hidden="true"></span>
+                Menu
+            </button>
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movies.html" class="active" aria-current="page">Movies</a></li>
+                    <li><a href="recommend.html">Recommendations</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="booking.html">Book Tickets</a></li>
+                    <li><a href="watchlist.html">Watchlist <span class="watchlist-count" id="watchlistCount">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- ========================= PAGE BANNER ========================= -->
+        <section class="page-banner" aria-labelledby="pageHeading">
+            <div class="container">
+                <p class="eyebrow">Now showing</p>
+                <h1 id="pageHeading">Movies at CineSpark</h1>
+                <p class="lead">
+                    Browse all nine movies screening this week. Check the age rating, running time, session
+                    times and price, then press <strong>Book Now</strong> &ndash; the movie will already be
+                    selected for you on the booking page.
+                </p>
+            </div>
+        </section>
+
+        <!-- ========================= MOVIE LIST ========================= -->
+        <section class="section" aria-labelledby="listHeading">
+            <div class="container">
+                <h2 id="listHeading" class="visually-hidden">All movies</h2>
+
+                <div class="info-bar">
+                    <p><strong>Ticket prices</strong> shown are for adults.</p>
+                    <p>Students save 20% &middot; Children save 40%</p>
+                    <p>Sessions run every day.</p>
+                </div>
+
+                <div class="movie-list">
+
+                    <!-- Movie 1 -->
+                    <article class="movie-card" id="skyline-pursuit">
+                        <img class="movie-poster" src="images/movie1.jpg" alt="Poster for Skyline Pursuit: a runner leaping between skyscrapers at sunset" width="400" height="600">
+                        <div class="movie-head">
+                            <h3>Skyline Pursuit</h3>
+                            <dl class="movie-meta">
+                                <div><dt>Genre</dt><dd>Action, Thriller</dd></div>
+                                <div><dt>Age rating</dt><dd><span class="rating rating-m">M</span></dd></div>
+                                <div><dt>Running time</dt><dd>2h 8m (128 min)</dd></div>
+                                <div><dt>Ticket price</dt><dd class="price">$22.00</dd></div>
+                            </dl>
+                        </div>
+                        <div class="movie-body">
+                            <p class="movie-desc">
+                                When former parkour champion Mara Quinn witnesses a data heist on the eightieth floor
+                                of a Sydney skyscraper, she becomes the only person who can identify the thieves. With
+                                corrupt security guards closing in, Mara must race across rooftops, cranes and glass
+                                bridges to deliver the evidence before sunrise. Packed with breathtaking stunts and a
+                                pulse-pounding score, Skyline Pursuit is a high-altitude thriller that never lets you
+                                catch your breath.
+                            </p>
+                            <p class="sessions-label">Daily sessions</p>
+                            <ul class="session-list">
+                                <li><time datetime="10:30">10:30 am</time></li>
+                                <li><time datetime="13:45">1:45 pm</time></li>
+                                <li><time datetime="19:00">7:00 pm</time></li>
+                                <li><time datetime="21:30">9:30 pm</time></li>
+                            </ul>
+                            <div class="movie-actions">
+                                <a class="btn btn-primary btn-small" href="booking.html?movie=skyline-pursuit&amp;from=movies">Book Now</a>
+                                <button type="button" class="btn btn-outline btn-small watchlist-btn" data-movie-id="skyline-pursuit">&#9825; Add to Watchlist</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Movie 2 -->
+                    <article class="movie-card" id="lantern-keepers">
+                        <img class="movie-poster" src="images/movie2.jpg" alt="Poster for The Lantern Keepers: glowing lanterns floating over night-time hills" width="400" height="600">
+                        <div class="movie-head">
+                            <h3>The Lantern Keepers</h3>
+                            <dl class="movie-meta">
+                                <div><dt>Genre</dt><dd>Animation, Adventure</dd></div>
+                                <div><dt>Age rating</dt><dd><span class="rating rating-g">G</span></dd></div>
+                                <div><dt>Running time</dt><dd>1h 38m (98 min)</dd></div>
+                                <div><dt>Ticket price</dt><dd class="price">$16.00</dd></div>
+                            </dl>
+                        </div>
+                        <div class="movie-body">
+                            <p class="movie-desc">
+                                In a sleepy mountain village, every lantern holds a captured dream. When a mischievous
+                                storm blows the lanterns away, eleven-year-old Kiri and her grumpy pet owl, Bramble,
+                                set off on a journey through enchanted forests and floating islands to bring the dreams
+                                home. Bursting with colour, gentle humour and heartfelt songs, this beautifully animated
+                                adventure celebrates courage, friendship and the magic of believing in yourself.
+                            </p>
+                            <p class="sessions-label">Daily sessions</p>
+                            <ul class="session-list">
+                                <li><time datetime="09:30">9:30 am</time></li>
+                                <li><time datetime="11:45">11:45 am</time></li>
+                                <li><time datetime="14:00">2:00 pm</time></li>
+                                <li><time datetime="16:15">4:15 pm</time></li>
+                            </ul>
+                            <div class="movie-actions">
+                                <a class="btn btn-primary btn-small" href="booking.html?movie=lantern-keepers&amp;from=movies">Book Now</a>
+                                <button type="button" class="btn btn-outline btn-small watchlist-btn" data-movie-id="lantern-keepers">&#9825; Add to Watchlist</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Movie 3 -->
+                    <article class="movie-card" id="plus-one-problems">
+                        <img class="movie-poster" src="images/movie3.jpg" alt="Poster for Plus One Problems: two wedding rings surrounded by confetti" width="400" height="600">
+                        <div class="movie-head">
+                            <h3>Plus One Problems</h3>
+                            <dl class="movie-meta">
+                                <div><dt>Genre</dt><dd>Comedy, Romance</dd></div>
+                                <div><dt>Age rating</dt><dd><span class="rating rating-m">M</span></dd></div>
+                                <div><dt>Running time</dt><dd>1h 52m (112 min)</dd></div>
+                                <div><dt>Ticket price</dt><dd class="price">$19.50</dd></div>
+                            </dl>
+                        </div>
+                        <div class="movie-body">
+                            <p class="movie-desc">
+                                Wedding planner Nina Lowe has organised two hundred perfect weddings but has never
+                                brought a date to one. When her ex is announced as best man at her sister&rsquo;s
+                                wedding, Nina convinces her charming but chaotic neighbour, Theo, to pose as her
+                                boyfriend for one weekend. What could possibly go wrong? Everything, it turns out. A
+                                sharp, warm-hearted romantic comedy full of awkward speeches, dance-floor disasters and
+                                surprising second chances.
+                            </p>
+                            <p class="sessions-label">Daily sessions</p>
+                            <ul class="session-list">
+                                <li><time datetime="12:15">12:15 pm</time></li>
+                                <li><time datetime="17:30">5:30 pm</time></li>
+                                <li><time datetime="20:15">8:15 pm</time></li>
+                            </ul>
+                            <div class="movie-actions">
+                                <a class="btn btn-primary btn-small" href="booking.html?movie=plus-one-problems&amp;from=movies">Book Now</a>
+                                <button type="button" class="btn btn-outline btn-small watchlist-btn" data-movie-id="plus-one-problems">&#9825; Add to Watchlist</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Movie 4 -->
+                    <article class="movie-card" id="quiet-harbour">
+                        <img class="movie-poster" src="images/movie4.jpg" alt="Poster for Quiet Harbour: a lighthouse and a small sailing boat at dusk" width="400" height="600">
+                        <div class="movie-head">
+                            <h3>Quiet Harbour</h3>
+                            <dl class="movie-meta">
+                                <div><dt>Genre</dt><dd>Drama</dd></div>
+                                <div><dt>Age rating</dt><dd><span class="rating rating-m">M</span></dd></div>
+                                <div><dt>Running time</dt><dd>2h 1m (121 min)</dd></div>
+                                <div><dt>Ticket price</dt><dd class="price">$19.50</dd></div>
+                            </dl>
+                        </div>
+                        <div class="movie-body">
+                            <p class="movie-desc">
+                                After twenty years away, celebrated architect Elena Marsh returns to the small Tasmanian
+                                fishing town where she grew up to care for her ailing father. As storm season
+                                approaches, old wounds reopen and Elena must choose between the life she built in the
+                                city and the family she left behind. With stunning coastal scenery and powerful
+                                performances, Quiet Harbour is a moving story about forgiveness, home and the ties that
+                                keep us anchored.
+                            </p>
+                            <p class="sessions-label">Daily sessions</p>
+                            <ul class="session-list">
+                                <li><time datetime="11:00">11:00 am</time></li>
+                                <li><time datetime="15:30">3:30 pm</time></li>
+                                <li><time datetime="18:45">6:45 pm</time></li>
+                            </ul>
+                            <div class="movie-actions">
+                                <a class="btn btn-primary btn-small" href="booking.html?movie=quiet-harbour&amp;from=movies">Book Now</a>
+                                <button type="button" class="btn btn-outline btn-small watchlist-btn" data-movie-id="quiet-harbour">&#9825; Add to Watchlist</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Movie 5 -->
+                    <article class="movie-card" id="neon-orbit">
+                        <img class="movie-poster" src="images/movie5.jpg" alt="Poster for Neon Orbit: a glowing ringed planet in deep space" width="400" height="600">
+                        <div class="movie-head">
+                            <h3>Neon Orbit</h3>
+                            <dl class="movie-meta">
+                                <div><dt>Genre</dt><dd>Sci-Fi, Action</dd></div>
+                                <div><dt>Age rating</dt><dd><span class="rating rating-m">M</span></dd></div>
+                                <div><dt>Running time</dt><dd>2h 15m (135 min)</dd></div>
+                                <div><dt>Ticket price</dt><dd class="price">$24.00</dd></div>
+                            </dl>
+                        </div>
+                        <div class="movie-body">
+                            <p class="movie-desc">
+                                In the year 2189, a rookie pilot aboard the mining station Helios-9 discovers that the
+                                station&rsquo;s computer has been secretly steering it towards a dying star. With
+                                communications cut and the crew divided, Captain Ava Reyes must lead a desperate mission
+                                through asteroid fields and zero-gravity tunnels to regain control. Presented on our
+                                largest screen with immersive sound, Neon Orbit is a dazzling space adventure that asks
+                                how far we will go to survive.
+                            </p>
+                            <p class="sessions-label">Daily sessions</p>
+                            <ul class="session-list">
+                                <li><time datetime="13:00">1:00 pm</time></li>
+                                <li><time datetime="16:30">4:30 pm</time></li>
+                                <li><time datetime="20:00">8:00 pm</time></li>
+                            </ul>
+                            <div class="movie-actions">
+                                <a class="btn btn-primary btn-small" href="booking.html?movie=neon-orbit&amp;from=movies">Book Now</a>
+                                <button type="button" class="btn btn-outline btn-small watchlist-btn" data-movie-id="neon-orbit">&#9825; Add to Watchlist</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Movie 6 -->
+                    <article class="movie-card" id="hollow-lane">
+                        <img class="movie-poster" src="images/movie6.jpg" alt="Poster for Midnight at Hollow Lane: a dark house with one lit window under a full moon" width="400" height="600">
+                        <div class="movie-head">
+                            <h3>Midnight at Hollow Lane</h3>
+                            <dl class="movie-meta">
+                                <div><dt>Genre</dt><dd>Horror, Mystery</dd></div>
+                                <div><dt>Age rating</dt><dd><span class="rating rating-ma">MA15+</span></dd></div>
+                                <div><dt>Running time</dt><dd>1h 44m (104 min)</dd></div>
+                                <div><dt>Ticket price</dt><dd class="price">$19.50</dd></div>
+                            </dl>
+                        </div>
+                        <div class="movie-body">
+                            <p class="movie-desc">
+                                When four university friends rent an old cottage on Hollow Lane for a weekend getaway,
+                                they laugh off the local legend about the house that rearranges itself at midnight. But
+                                as doors appear where walls once stood and their phones begin recording voices nobody
+                                can hear, the group realises the legend is real. Tense, clever and genuinely
+                                frightening, this chilling horror film will have you checking behind every door long
+                                after the credits roll.
+                            </p>
+                            <p class="sessions-label">Daily sessions</p>
+                            <ul class="session-list">
+                                <li><time datetime="18:30">6:30 pm</time></li>
+                                <li><time datetime="21:00">9:00 pm</time></li>
+                                <li><time datetime="23:15">11:15 pm</time></li>
+                            </ul>
+                            <div class="movie-actions">
+                                <a class="btn btn-primary btn-small" href="booking.html?movie=hollow-lane&amp;from=movies">Book Now</a>
+                                <button type="button" class="btn btn-outline btn-small watchlist-btn" data-movie-id="hollow-lane">&#9825; Add to Watchlist</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Movie 7 -->
+                    <article class="movie-card" id="grandpa-goes-viral">
+                        <img class="movie-poster" src="images/movie7.jpg" alt="Poster for Grandpa Goes Viral: a cheerful grandfather on a phone screen surrounded by likes" width="400" height="600">
+                        <div class="movie-head">
+                            <h3>Grandpa Goes Viral</h3>
+                            <dl class="movie-meta">
+                                <div><dt>Genre</dt><dd>Comedy, Family</dd></div>
+                                <div><dt>Age rating</dt><dd><span class="rating rating-pg">PG</span></dd></div>
+                                <div><dt>Running time</dt><dd>1h 35m (95 min)</dd></div>
+                                <div><dt>Ticket price</dt><dd class="price">$17.00</dd></div>
+                            </dl>
+                        </div>
+                        <div class="movie-body">
+                            <p class="movie-desc">
+                                Seventy-eight-year-old Walter Bloom just wanted to learn how to video-call his
+                                grandchildren. Instead, he accidentally posts a dance video that turns him into the
+                                internet&rsquo;s biggest overnight sensation. Suddenly juggling sponsorship deals, fan
+                                mail and a rivalry with a teenage influencer, Walter must decide what really matters
+                                before fame goes to his head. A laugh-out-loud comedy that brings generations together,
+                                with plenty of jokes for kids and grown-ups alike.
+                            </p>
+                            <p class="sessions-label">Daily sessions</p>
+                            <ul class="session-list">
+                                <li><time datetime="10:00">10:00 am</time></li>
+                                <li><time datetime="12:30">12:30 pm</time></li>
+                                <li><time datetime="15:00">3:00 pm</time></li>
+                                <li><time datetime="17:45">5:45 pm</time></li>
+                            </ul>
+                            <div class="movie-actions">
+                                <a class="btn btn-primary btn-small" href="booking.html?movie=grandpa-goes-viral&amp;from=movies">Book Now</a>
+                                <button type="button" class="btn btn-outline btn-small watchlist-btn" data-movie-id="grandpa-goes-viral">&#9825; Add to Watchlist</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Movie 8 -->
+                    <article class="movie-card" id="paper-hearts">
+                        <img class="movie-poster" src="images/movie8.jpg" alt="Poster for Paper Hearts in Paris: folded paper hearts floating around the Eiffel Tower" width="400" height="600">
+                        <div class="movie-head">
+                            <h3>Paper Hearts in Paris</h3>
+                            <dl class="movie-meta">
+                                <div><dt>Genre</dt><dd>Romance, Drama</dd></div>
+                                <div><dt>Age rating</dt><dd><span class="rating rating-pg">PG</span></dd></div>
+                                <div><dt>Running time</dt><dd>1h 49m (109 min)</dd></div>
+                                <div><dt>Ticket price</dt><dd class="price">$18.00</dd></div>
+                            </dl>
+                        </div>
+                        <div class="movie-body">
+                            <p class="movie-desc">
+                                Shy Melbourne bookbinder Lucy Tran wins a month-long apprenticeship at a historic paper
+                                workshop in Paris. There she meets Julien, a street artist who leaves folded paper
+                                hearts around the city with anonymous love notes inside. As Lucy follows the trail of
+                                hearts through cobblestone lanes and hidden caf&eacute;s, she begins to wonder who the
+                                notes were really meant for. A charming, gently funny romance about taking risks and
+                                finding where you belong.
+                            </p>
+                            <p class="sessions-label">Daily sessions</p>
+                            <ul class="session-list">
+                                <li><time datetime="11:30">11:30 am</time></li>
+                                <li><time datetime="16:00">4:00 pm</time></li>
+                                <li><time datetime="19:15">7:15 pm</time></li>
+                            </ul>
+                            <div class="movie-actions">
+                                <a class="btn btn-primary btn-small" href="booking.html?movie=paper-hearts&amp;from=movies">Book Now</a>
+                                <button type="button" class="btn btn-outline btn-small watchlist-btn" data-movie-id="paper-hearts">&#9825; Add to Watchlist</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Movie 9 -->
+                    <article class="movie-card" id="robo-pup-rescue">
+                        <img class="movie-poster" src="images/movie9.jpg" alt="Poster for Robo Pup Rescue: a friendly robot dog with glowing eyes" width="400" height="600">
+                        <div class="movie-head">
+                            <h3>Robo Pup Rescue</h3>
+                            <dl class="movie-meta">
+                                <div><dt>Genre</dt><dd>Animation, Action</dd></div>
+                                <div><dt>Age rating</dt><dd><span class="rating rating-pg">PG</span></dd></div>
+                                <div><dt>Running time</dt><dd>1h 32m (92 min)</dd></div>
+                                <div><dt>Ticket price</dt><dd class="price">$16.00</dd></div>
+                            </dl>
+                        </div>
+                        <div class="movie-body">
+                            <p class="movie-desc">
+                                When a clumsy robot puppy named Sprocket is accidentally switched on in a toy factory,
+                                he discovers that the factory&rsquo;s owner plans to replace every real pet in
+                                Gearsville with robots. Teaming up with a brave alley cat and a group of curious kids,
+                                Sprocket races against time to stop the plan. Full of high-speed chases, slapstick gags
+                                and big-hearted moments, this animated action-comedy will have young audiences cheering
+                                from start to finish.
+                            </p>
+                            <p class="sessions-label">Daily sessions</p>
+                            <ul class="session-list">
+                                <li><time datetime="09:45">9:45 am</time></li>
+                                <li><time datetime="12:00">12:00 pm</time></li>
+                                <li><time datetime="14:30">2:30 pm</time></li>
+                                <li><time datetime="16:45">4:45 pm</time></li>
+                            </ul>
+                            <div class="movie-actions">
+                                <a class="btn btn-primary btn-small" href="booking.html?movie=robo-pup-rescue&amp;from=movies">Book Now</a>
+                                <button type="button" class="btn btn-outline btn-small watchlist-btn" data-movie-id="robo-pup-rescue">&#9825; Add to Watchlist</button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== NOT SURE WHAT TO WATCH ===================== -->
+        <section class="section section-alt" aria-labelledby="helpHeading">
+            <div class="container">
+                <div class="cta-band">
+                    <h2 id="helpHeading">Not sure what to watch?</h2>
+                    <p>Tell us your favourite genre, age group and who you are watching with, and we will pick the best movies for you.</p>
+                    <a class="btn btn-primary" href="recommend.html">Get Recommendations</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Small confirmation message used by the watchlist buttons -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <!-- ============================ SITE FOOTER ============================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <p class="footer-heading">CineSpark</p>
+                    <p>Discover great movies, get personalised recommendations and book your cinema tickets online in minutes.</p>
+                </div>
+                <div>
+                    <p class="footer-heading">Explore</p>
+                    <ul class="footer-links">
+                        <li><a href="movies.html">Now showing</a></li>
+                        <li><a href="recommend.html">Get recommendations</a></li>
+                        <li><a href="booking.html">Book tickets</a></li>
+                        <li><a href="watchlist.html">My watchlist</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="footer-heading">Contact</p>
+                    <ul class="footer-links">
+                        <li><a href="mailto:hello@cinespark.example">hello@cinespark.example</a></li>
+                        <li>Open daily, 9:00 am &ndash; midnight</li>
+                        <li><a href="register.html">Become a member</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CineSpark. Created by Quang Phu Duc Vo for COS10005 Web Development, Assignment 2.</p>
+                <p>CineSpark and every movie on this website are fictional. All images are original artwork.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="description" content="Your CineSpark watchlist - the movies you saved while browsing.">
+    <meta name="author" content="Quang Phu Duc Vo">
+    <title>My Watchlist | CineSpark</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- ===================== SITE HEADER & NAVIGATION ===================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">
+                <img src="images/logo.png" alt="CineSpark home" width="360" height="96">
+            </a>
+            <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-icon" aria-hidden="true"></span>
+                Menu
+            </button>
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="recommend.html">Recommendations</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="booking.html">Book Tickets</a></li>
+                    <li><a href="watchlist.html" class="active" aria-current="page">Watchlist <span class="watchlist-count" id="watchlistCount">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- ========================= PAGE BANNER ========================= -->
+        <section class="page-banner" aria-labelledby="pageHeading">
+            <div class="container">
+                <p class="eyebrow">Your favourites</p>
+                <h1 id="pageHeading">My Watchlist</h1>
+                <p class="lead">
+                    Movies you have saved while browsing. Your watchlist is kept while you move between pages
+                    and is cleared automatically when you close this browser tab.
+                </p>
+            </div>
+        </section>
+
+        <!-- ========================= SAVED MOVIES ========================= -->
+        <section class="section" aria-labelledby="savedHeading">
+            <div class="container">
+                <div class="watchlist-toolbar">
+                    <div>
+                        <h2 id="savedHeading">Saved movies</h2>
+                        <p id="watchlistSummary" class="text-muted mb-0" aria-live="polite">You have 0 movies saved.</p>
+                    </div>
+                    <button type="button" id="clearWatchlist" class="btn btn-outline btn-small" hidden>Clear watchlist</button>
+                </div>
+
+                <!-- Shown when the watchlist is empty -->
+                <div id="watchlistEmpty" class="empty-state">
+                    <span class="feature-icon" aria-hidden="true">&#9825;</span>
+                    <h3>Your watchlist is empty</h3>
+                    <p class="text-muted">Press <strong>Add to Watchlist</strong> on any movie to save it here.</p>
+                    <a class="btn btn-primary" href="movies.html">Browse Movies</a>
+                </div>
+
+                <!-- Saved movies are added here by JavaScript (see script.js, section 4) -->
+                <div id="watchlistItems" class="watchlist-grid"></div>
+
+                <noscript>
+                    <p class="notice">JavaScript is needed to show your saved movies.</p>
+                </noscript>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Small confirmation message used when a movie is removed -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <!-- ============================ SITE FOOTER ============================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <p class="footer-heading">CineSpark</p>
+                    <p>Discover great movies, get personalised recommendations and book your cinema tickets online in minutes.</p>
+                </div>
+                <div>
+                    <p class="footer-heading">Explore</p>
+                    <ul class="footer-links">
+                        <li><a href="movies.html">Now showing</a></li>
+                        <li><a href="recommend.html">Get recommendations</a></li>
+                        <li><a href="booking.html">Book tickets</a></li>
+                        <li><a href="watchlist.html">My watchlist</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="footer-heading">Contact</p>
+                    <ul class="footer-links">
+                        <li><a href="mailto:hello@cinespark.example">hello@cinespark.example</a></li>
+                        <li>Open daily, 9:00 am &ndash; midnight</li>
+                        <li><a href="register.html">Become a member</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CineSpark. Created by Quang Phu Duc Vo for COS10005 Web Development, Assignment 2.</p>
+                <p>CineSpark and every movie on this website are fictional. All images are original artwork.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

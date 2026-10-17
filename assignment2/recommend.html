@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="description" content="Get personalised movie recommendations from CineSpark based on your favourite genre, age group and viewing occasion.">
+    <meta name="author" content="Quang Phu Duc Vo">
+    <title>Movie Recommendations | CineSpark</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- ===================== SITE HEADER & NAVIGATION ===================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">
+                <img src="images/logo.png" alt="CineSpark home" width="360" height="96">
+            </a>
+            <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-icon" aria-hidden="true"></span>
+                Menu
+            </button>
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="recommend.html" class="active" aria-current="page">Recommendations</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="booking.html">Book Tickets</a></li>
+                    <li><a href="watchlist.html">Watchlist <span class="watchlist-count" id="watchlistCount">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- ========================= PAGE BANNER ========================= -->
+        <section class="page-banner" aria-labelledby="pageHeading">
+            <div class="container">
+                <p class="eyebrow">Personalised for you</p>
+                <h1 id="pageHeading">Movie Recommendations</h1>
+                <p class="lead">
+                    Answer three quick questions and we will match you with the movies that best suit your
+                    taste, your age group and the people you are watching with.
+                </p>
+            </div>
+        </section>
+
+        <!-- =================== RECOMMENDATION FORM + RESULTS =================== -->
+        <section class="section" aria-labelledby="formHeading">
+            <div class="container recommend-layout">
+
+                <!-- The form is handled by JavaScript, so it has no action attribute -->
+                <form id="recommendForm" class="form-card" novalidate>
+                    <h2 id="formHeading">Your preferences</h2>
+                    <p class="form-intro">Choose one option in each group, then press the button.</p>
+
+                    <!-- Question 1: preferred genre -->
+                    <fieldset class="choice-group" id="genre" aria-describedby="genreError">
+                        <legend>1. Preferred genre <span class="required" aria-hidden="true">*</span></legend>
+                        <div class="chip-options">
+                            <label class="chip"><input type="radio" name="genre" value="Action"><span>Action</span></label>
+                            <label class="chip"><input type="radio" name="genre" value="Comedy"><span>Comedy</span></label>
+                            <label class="chip"><input type="radio" name="genre" value="Animation"><span>Animation</span></label>
+                            <label class="chip"><input type="radio" name="genre" value="Drama"><span>Drama</span></label>
+                            <label class="chip"><input type="radio" name="genre" value="Romance"><span>Romance</span></label>
+                            <label class="chip"><input type="radio" name="genre" value="Sci-Fi"><span>Sci-Fi</span></label>
+                            <label class="chip"><input type="radio" name="genre" value="Horror"><span>Horror</span></label>
+                        </div>
+                        <p class="error-msg" id="genreError"></p>
+                    </fieldset>
+
+                    <!-- Question 2: age group -->
+                    <fieldset class="choice-group" id="ageGroup" aria-describedby="ageGroupError">
+                        <legend>2. Age group <span class="required" aria-hidden="true">*</span></legend>
+                        <div class="chip-options">
+                            <label class="chip"><input type="radio" name="ageGroup" value="Child"><span>Child (under 13)</span></label>
+                            <label class="chip"><input type="radio" name="ageGroup" value="Teen"><span>Teen (13&ndash;17)</span></label>
+                            <label class="chip"><input type="radio" name="ageGroup" value="Adult"><span>Adult (18+)</span></label>
+                        </div>
+                        <p class="error-msg" id="ageGroupError"></p>
+                    </fieldset>
+
+                    <!-- Question 3: viewing preference -->
+                    <fieldset class="choice-group" id="viewing" aria-describedby="viewingError">
+                        <legend>3. Viewing preference <span class="required" aria-hidden="true">*</span></legend>
+                        <div class="chip-options">
+                            <label class="chip"><input type="radio" name="viewing" value="Family"><span>Family</span></label>
+                            <label class="chip"><input type="radio" name="viewing" value="Date Night"><span>Date Night</span></label>
+                            <label class="chip"><input type="radio" name="viewing" value="Friends"><span>Friends</span></label>
+                            <label class="chip"><input type="radio" name="viewing" value="Solo"><span>Solo</span></label>
+                        </div>
+                        <p class="error-msg" id="viewingError"></p>
+                    </fieldset>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Get Recommendations</button>
+                        <button type="reset" class="btn btn-ghost">Start again</button>
+                    </div>
+                </form>
+
+                <!-- Results area - filled in by JavaScript -->
+                <div class="results-panel">
+                    <h2 id="resultsHeading">Your recommendations</h2>
+                    <p class="results-placeholder" id="resultsPlaceholder">
+                        Choose your preferences and press <strong>Get Recommendations</strong> to see the movies we picked for you.
+                    </p>
+                    <div id="recommendResults" aria-live="polite" hidden></div>
+                    <noscript>
+                        <p class="notice">JavaScript is needed to calculate recommendations. You can still browse all movies on the <a href="movies.html">Movies page</a>.</p>
+                    </noscript>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ====================== HOW RECOMMENDATIONS WORK ====================== -->
+        <section class="section section-alt" aria-labelledby="rulesHeading">
+            <div class="container">
+                <div class="section-header">
+                    <p class="eyebrow">Transparent picks</p>
+                    <h2 id="rulesHeading">How we choose your movies</h2>
+                </div>
+                <div class="grid grid-2">
+                    <article class="card">
+                        <h3>1. Safety filters first</h3>
+                        <ul class="rules-list">
+                            <li><strong>Child</strong> &ndash; only G and PG movies are suggested.</li>
+                            <li><strong>Teen</strong> &ndash; G, PG and M movies (no MA15+).</li>
+                            <li><strong>Adult</strong> &ndash; every classification.</li>
+                            <li><strong>Family</strong> viewing is limited to G and PG, as children are likely to be watching too.</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>2. Then every movie is scored</h3>
+                        <ul class="rules-list">
+                            <li>Your genre is the movie&rsquo;s <strong>main genre</strong>: +5 points</li>
+                            <li>Your genre is a <strong>secondary genre</strong>: +3 points</li>
+                            <li>The movie suits your <strong>viewing occasion</strong>: +3 points</li>
+                            <li>The movie was made for your <strong>age group</strong>: +2 points</li>
+                        </ul>
+                        <p>The three highest-scoring movies are shown with a match percentage and the reasons they were chosen.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================ SITE FOOTER ============================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <p class="footer-heading">CineSpark</p>
+                    <p>Discover great movies, get personalised recommendations and book your cinema tickets online in minutes.</p>
+                </div>
+                <div>
+                    <p class="footer-heading">Explore</p>
+                    <ul class="footer-links">
+                        <li><a href="movies.html">Now showing</a></li>
+                        <li><a href="recommend.html">Get recommendations</a></li>
+                        <li><a href="booking.html">Book tickets</a></li>
+                        <li><a href="watchlist.html">My watchlist</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="footer-heading">Contact</p>
+                    <ul class="footer-links">
+                        <li><a href="mailto:hello@cinespark.example">hello@cinespark.example</a></li>
+                        <li>Open daily, 9:00 am &ndash; midnight</li>
+                        <li><a href="register.html">Become a member</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CineSpark. Created by Quang Phu Duc Vo for COS10005 Web Development, Assignment 2.</p>
+                <p>CineSpark and every movie on this website are fictional. All images are original artwork.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

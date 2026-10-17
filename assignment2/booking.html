@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="description" content="Book movie tickets at CineSpark: choose a movie, session and ticket type, then pay by voucher or card.">
+    <meta name="author" content="Quang Phu Duc Vo">
+    <title>Book Tickets | CineSpark</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- ===================== SITE HEADER & NAVIGATION ===================== -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">
+                <img src="images/logo.png" alt="CineSpark home" width="360" height="96">
+            </a>
+            <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-icon" aria-hidden="true"></span>
+                Menu
+            </button>
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="recommend.html">Recommendations</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="booking.html" class="active" aria-current="page">Book Tickets</a></li>
+                    <li><a href="watchlist.html">Watchlist <span class="watchlist-count" id="watchlistCount">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- ========================= PAGE BANNER ========================= -->
+        <section class="page-banner" aria-labelledby="pageHeading">
+            <div class="container">
+                <p class="eyebrow">Secure your seats</p>
+                <h1 id="pageHeading">Book Your Tickets</h1>
+                <p class="lead">Choose your movie, session and tickets. Fields marked with <span class="required">*</span> are required.</p>
+            </div>
+        </section>
+
+        <!-- ===================== BOOKING FORM + SIDE PANEL ===================== -->
+        <section class="section" aria-labelledby="formHeading">
+            <div class="container booking-layout">
+
+                <!-- Booking form: checked by JavaScript before it is sent (see script.js, section 8) -->
+                <form id="bookingForm" class="form-card" method="post"
+                      action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php" novalidate>
+                    <h2 id="formHeading" class="mt-0">Booking details</h2>
+
+                    <!-- Shown by JavaScript when a movie was chosen on another page -->
+                    <p id="prefillNotice" class="notice" role="status" hidden></p>
+
+                    <!-- Summary of errors, shown by JavaScript when the form has problems -->
+                    <div id="bookingErrors" class="error-summary" role="alert" hidden></div>
+
+                    <noscript>
+                        <p class="notice">Please enable JavaScript to see ticket prices and payment options.</p>
+                    </noscript>
+
+                    <!-- ===== 1. Contact details ===== -->
+                    <fieldset class="form-section">
+                        <legend>1. Your details</legend>
+
+                        <div class="form-group">
+                            <label for="fullName">Full name <span class="required" aria-hidden="true">*</span></label>
+                            <input type="text" id="fullName" name="fullName" autocomplete="name" required
+                                   aria-describedby="fullNameError">
+                            <p class="error-msg" id="fullNameError"></p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email address <span class="required" aria-hidden="true">*</span></label>
+                                <input type="email" id="email" name="email" autocomplete="email" required
+                                       placeholder="name@example.com" aria-describedby="emailError">
+                                <p class="error-msg" id="emailError"></p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone number <span class="required" aria-hidden="true">*</span></label>
+                                <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="numeric" required
+                                       aria-describedby="phoneHint phoneError">
+                                <p class="hint" id="phoneHint">Digits only, at least 10 digits.</p>
+                                <p class="error-msg" id="phoneError"></p>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- ===== 2. Movie and session ===== -->
+                    <fieldset class="form-section">
+                        <legend>2. Movie &amp; session</legend>
+
+                        <div class="form-group">
+                            <label for="movie">Movie <span class="required" aria-hidden="true">*</span></label>
+                            <select id="movie" name="movie" required aria-describedby="movieError">
+                                <option value="">-- Select a movie --</option>
+                                <option value="skyline-pursuit">Skyline Pursuit (M) &ndash; $22.00</option>
+                                <option value="lantern-keepers">The Lantern Keepers (G) &ndash; $16.00</option>
+                                <option value="plus-one-problems">Plus One Problems (M) &ndash; $19.50</option>
+                                <option value="quiet-harbour">Quiet Harbour (M) &ndash; $19.50</option>
+                                <option value="neon-orbit">Neon Orbit (M) &ndash; $24.00</option>
+                                <option value="hollow-lane">Midnight at Hollow Lane (MA15+) &ndash; $19.50</option>
+                                <option value="grandpa-goes-viral">Grandpa Goes Viral (PG) &ndash; $17.00</option>
+                                <option value="paper-hearts">Paper Hearts in Paris (PG) &ndash; $18.00</option>
+                                <option value="robo-pup-rescue">Robo Pup Rescue (PG) &ndash; $16.00</option>
+                            </select>
+                            <p class="error-msg" id="movieError"></p>
+                            <!-- Poster and details of the chosen movie (added by JavaScript) -->
+                            <div id="moviePreview" class="movie-preview" hidden></div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="screeningDate">Screening date <span class="required" aria-hidden="true">*</span></label>
+                                <input type="date" id="screeningDate" name="screeningDate" required
+                                       aria-describedby="screeningDateError">
+                                <p class="error-msg" id="screeningDateError"></p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sessionTime">Session time <span class="required" aria-hidden="true">*</span></label>
+                                <select id="sessionTime" name="sessionTime" required aria-describedby="sessionTimeError">
+                                    <option value="">Select a movie first</option>
+                                </select>
+                                <p class="error-msg" id="sessionTimeError"></p>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- ===== 3. Tickets and cost ===== -->
+                    <fieldset class="form-section">
+                        <legend>3. Tickets</legend>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="ticketType">Ticket type <span class="required" aria-hidden="true">*</span></label>
+                                <select id="ticketType" name="ticketType" aria-describedby="ticketTypeError">
+                                    <option value="adult" selected>Adult (full price)</option>
+                                    <option value="student">Student (20% off)</option>
+                                    <option value="child">Child (40% off)</option>
+                                </select>
+                                <p class="error-msg" id="ticketTypeError"></p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="numTickets">Number of tickets <span class="required" aria-hidden="true">*</span></label>
+                                <input type="number" id="numTickets" name="numTickets" min="1" max="10" step="1" value="1"
+                                       required aria-describedby="numTicketsHint numTicketsError">
+                                <p class="hint" id="numTicketsHint">Between 1 and 10 tickets per booking.</p>
+                                <p class="error-msg" id="numTicketsError"></p>
+                            </div>
+                        </div>
+
+                        <!-- Booking cost - calculated by JavaScript (read-only, but still submitted) -->
+                        <div class="cost-box">
+                            <div class="cost-row">
+                                <label for="ticketPrice">Ticket price (each)</label>
+                                <input type="text" id="ticketPrice" name="ticketPrice" value="$0.00" readonly>
+                            </div>
+                            <div class="cost-row total">
+                                <label for="totalCost">Total booking cost</label>
+                                <input type="text" id="totalCost" name="totalCost" value="$0.00" readonly>
+                            </div>
+                            <p class="cost-note" id="costBreakdown" aria-live="polite">Select a movie to see its ticket price.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="specialRequests">Special requests <span class="text-muted">(optional)</span></label>
+                            <textarea id="specialRequests" name="specialRequests" rows="4" maxlength="300"
+                                      placeholder="e.g. wheelchair-accessible seating, aisle seats, booster seat for a child"></textarea>
+                        </div>
+                    </fieldset>
+
+                    <!-- ===== 4. Payment ===== -->
+                    <fieldset class="form-section">
+                        <legend>4. Payment</legend>
+
+                        <fieldset class="choice-group" id="paymentMethod" aria-describedby="paymentMethodError">
+                            <legend>Payment method <span class="required" aria-hidden="true">*</span></legend>
+                            <div class="option-list">
+                                <label class="option"><input type="radio" name="paymentMethod" value="voucher"> Voucher</label>
+                                <label class="option"><input type="radio" name="paymentMethod" value="online"> Online payment (credit card)</label>
+                            </div>
+                            <p class="error-msg" id="paymentMethodError"></p>
+                        </fieldset>
+
+                        <!-- Shown only when "Voucher" is selected -->
+                        <div id="voucherFields" class="conditional" hidden>
+                            <div class="form-group">
+                                <label for="voucherCode">Voucher code <span class="required" aria-hidden="true">*</span></label>
+                                <input type="text" id="voucherCode" name="voucherCode" inputmode="numeric" maxlength="12"
+                                       placeholder="12-digit code" autocomplete="off" disabled
+                                       aria-describedby="voucherCodeHint voucherCodeError">
+                                <p class="hint" id="voucherCodeHint">Enter the 12 digits printed on your gift voucher.</p>
+                                <p class="error-msg" id="voucherCodeError"></p>
+                            </div>
+                        </div>
+
+                        <!-- Shown only when "Online payment" is selected -->
+                        <div id="cardFields" class="conditional" hidden>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cardType">Card type <span class="required" aria-hidden="true">*</span></label>
+                                    <select id="cardType" name="cardType" disabled aria-describedby="cardTypeError">
+                                        <option value="">-- Select card type --</option>
+                                        <option value="visa">Visa</option>
+                                        <option value="mastercard">Mastercard</option>
+                                        <option value="amex">American Express</option>
+                                    </select>
+                                    <p class="error-msg" id="cardTypeError"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cardName">Name on card <span class="required" aria-hidden="true">*</span></label>
+                                    <input type="text" id="cardName" name="cardName" autocomplete="cc-name" disabled
+                                           aria-describedby="cardNameError">
+                                    <p class="error-msg" id="cardNameError"></p>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cardNumber">Card number <span class="required" aria-hidden="true">*</span></label>
+                                    <input type="text" id="cardNumber" name="cardNumber" inputmode="numeric" maxlength="16"
+                                           autocomplete="cc-number" disabled aria-describedby="cardNumberHint cardNumberError">
+                                    <p class="hint" id="cardNumberHint">Visa and Mastercard: 16 digits. American Express: 15 digits.</p>
+                                    <p class="error-msg" id="cardNumberError"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cardExpiry">Expiry date <span class="required" aria-hidden="true">*</span></label>
+                                    <input type="text" id="cardExpiry" name="cardExpiry" maxlength="5" placeholder="MM/YY"
+                                           autocomplete="cc-exp" disabled aria-describedby="cardExpiryError">
+                                    <p class="error-msg" id="cardExpiryError"></p>
+                                </div>
+                            </div>
+                            <p class="hint">This is a student project &ndash; please use the fake test card numbers shown on this page. No real payment is processed.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="billingEmail">Billing email address <span class="required" aria-hidden="true">*</span></label>
+                            <input type="email" id="billingEmail" name="billingEmail" autocomplete="email" required
+                                   aria-describedby="billingEmailError">
+                            <label class="checkbox-row">
+                                <input type="checkbox" id="sameAsEmail" name="sameAsEmail" value="yes">
+                                Same as email address
+                            </label>
+                            <p class="error-msg" id="billingEmailError"></p>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                        <button type="reset" class="btn btn-ghost">Clear form</button>
+                    </div>
+                </form>
+
+                <!-- ===== Side panel: prices and test data ===== -->
+                <aside class="side-panel card" aria-labelledby="pricesHeading">
+                    <h2 id="pricesHeading" class="mt-0">Ticket prices</h2>
+                    <table class="price-table">
+                        <caption class="visually-hidden">Ticket type discounts</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Ticket type</th>
+                                <th scope="col">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Adult</td>
+                                <td>Full movie price</td>
+                            </tr>
+                            <tr>
+                                <td>Student</td>
+                                <td>20% off</td>
+                            </tr>
+                            <tr>
+                                <td>Child</td>
+                                <td>40% off (not for MA15+)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="hint">Movie prices range from $16.00 to $24.00. See every price on the <a href="movies.html">Movies page</a>.</p>
+
+                    <h2>Test details</h2>
+                    <p class="hint">No real payment is taken. Use these fake numbers to try the form:</p>
+                    <ul class="test-data">
+                        <li>Voucher: <code>123456789012</code></li>
+                        <li>Visa: <code>4111111111111111</code></li>
+                        <li>Mastercard: <code>5555555555554444</code></li>
+                        <li>Amex: <code>378282246310005</code></li>
+                        <li>Expiry: any future date, e.g. <code>12/29</code></li>
+                    </ul>
+                </aside>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================ SITE FOOTER ============================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <p class="footer-heading">CineSpark</p>
+                    <p>Discover great movies, get personalised recommendations and book your cinema tickets online in minutes.</p>
+                </div>
+                <div>
+                    <p class="footer-heading">Explore</p>
+                    <ul class="footer-links">
+                        <li><a href="movies.html">Now showing</a></li>
+                        <li><a href="recommend.html">Get recommendations</a></li>
+                        <li><a href="booking.html">Book tickets</a></li>
+                        <li><a href="watchlist.html">My watchlist</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="footer-heading">Contact</p>
+                    <ul class="footer-links">
+                        <li><a href="mailto:hello@cinespark.example">hello@cinespark.example</a></li>
+                        <li>Open daily, 9:00 am &ndash; midnight</li>
+                        <li><a href="register.html">Become a member</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CineSpark. Created by Quang Phu Duc Vo for COS10005 Web Development, Assignment 2.</p>
+                <p>CineSpark and every movie on this website are fictional. All images are original artwork.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
