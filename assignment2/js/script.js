@@ -1236,7 +1236,7 @@ function getBookingRules() {
             }
             const value = getFieldValue("cardExpiry");
             if (value === "") {
-                return "Please enter the card's expiry date.";
+                return "Please enter the card expiry date.";
             }
             if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(value)) {
                 return "Expiry date must be in MM/YY format, e.g. 08/28.";
