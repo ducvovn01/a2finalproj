@@ -247,8 +247,7 @@ function showToast(message) {
 
 /* ==========================================================================
    3. NAVIGATION - mobile menu button
-   On small screens the menu is collapsed; the button opens and closes it.
-   The current page is highlighted with class="active" on its link.
+
    ========================================================================== */
 function initNavigation() {
     const toggle = document.getElementById("navToggle");
@@ -265,14 +264,10 @@ function initNavigation() {
 
 /* ==========================================================================
    4. WATCHLIST / FAVOURITES - BONUS TASK
-   The watchlist is an array of movie ids, e.g. ["neon-orbit", "paper-hearts"].
-   It is saved in sessionStorage as a JSON string, so it:
-     - survives moving between pages and reloading,
-     - is private to this browser tab,
-     - is cleared automatically when the browsing session (tab) ends.
+
    ========================================================================== */
 
-/* Reads the saved list. try/catch protects against blocked storage or bad data. */
+
 function getWatchlist() {
     try {
         const saved = sessionStorage.getItem(WATCHLIST_KEY);
@@ -348,8 +343,7 @@ function initWatchlistButtons() {
     });
 }
 
-/* Builds the HTML for one saved movie on watchlist.html.
-   Only trusted data from the MOVIES array is inserted, never user input. */
+
 function createWatchlistItemHTML(movie) {
     return `
         <article class="watch-item">
@@ -420,18 +414,7 @@ function initWatchlistPage() {
 
 /* ==========================================================================
    5. RECOMMENDATION ENGINE (recommend.html)
-   Rule-based logic:
-     Rule 1 - AGE FILTER: remove movies the age group should not watch
-              Child -> G, PG    Teen -> G, PG, M    Adult -> all ratings
-     Rule 2 - FAMILY FILTER: "Family" viewing allows only G and PG,
-              because children are likely to be watching too
-     Rule 3 - SCORING: every remaining movie earns points
-              main genre matches          +5
-              secondary genre matches     +3
-              suits the viewing occasion  +3
-              made for that age group     +2
-     Rule 4 - RANKING: highest score first (ties go to the better genre
-              match) and the top 3 are shown with the reasons they matched.
+   
    ========================================================================== */
 const RATINGS_BY_AGE = {
     Child: ["G", "PG"],
@@ -446,7 +429,7 @@ const POINTS = {
     audience: 2
 };
 
-const MAX_POINTS = POINTS.mainGenre + POINTS.viewing + POINTS.audience;   /* 10 */
+const MAX_POINTS = POINTS.mainGenre + POINTS.viewing + POINTS.audience;   /* equals to 10 */
 
 const AGE_LABELS = {
     Child: "children (under 13)",
@@ -502,7 +485,7 @@ function scoreMovie(movie, prefs) {
     return { movie: movie, score: score, genrePoints: genrePoints, reasons: reasons };
 }
 
-/* Applies all four rules and returns everything needed to display the result */
+
 function getRecommendations(prefs) {
     const allowedRatings = getAllowedRatings(prefs.age, prefs.viewing);
 
@@ -658,9 +641,7 @@ function initRecommendForm() {
 
 /* ==========================================================================
    6. FORM VALIDATION HELPERS (shared by the registration and booking forms)
-   Each form describes its checks as a "rules" object:
-       { fieldId: function () { return "error message" or "" } }
-   Every field has a matching error element with id = fieldId + "Error".
+
    ========================================================================== */
 
 /* Displays an error message under a field and marks the field as invalid */
@@ -726,7 +707,7 @@ function updateErrorSummary(summaryId, invalidFields) {
     summary.hidden = false;
 }
 
-/* Moves keyboard focus to a field (or the first option of a radio/checkbox group) */
+
 function focusField(fieldId) {
     const field = document.getElementById(fieldId);
     if (!field) {
@@ -898,11 +879,7 @@ function initRegisterForm() {
    8. BOOKING FORM (booking.html)
    ========================================================================== */
 
-/* --- 8a. Pre-filling the movie --------------------------------------------
-   The Movies, Recommendations and Watchlist pages link here with a query
-   string, e.g.  booking.html?movie=neon-orbit&from=recommend
-   URLSearchParams reads those values, and if the id matches a movie the
-   dropdown is set to it. The user can still change the movie at any time. */
+
 function prefillMovieFromUrl() {
     const params = new URLSearchParams(window.location.search);
     const movie = findMovieById(params.get("movie"));
@@ -924,7 +901,7 @@ function prefillMovieFromUrl() {
     notice.hidden = false;
 }
 
-/* --- 8b. Small poster and details under the movie dropdown --------------- */
+
 function updateMoviePreview() {
     const preview = document.getElementById("moviePreview");
     const movie = findMovieById(getFieldValue("movie"));
@@ -944,7 +921,7 @@ function updateMoviePreview() {
     preview.hidden = false;
 }
 
-/* --- 8c. Session times depend on the chosen movie (and on the date) ------ */
+
 function updateSessionTimes() {
     const select = document.getElementById("sessionTime");
     const movie = findMovieById(getFieldValue("movie"));
@@ -1273,8 +1250,7 @@ function initBookingForm() {
 
 /* ==========================================================================
    9. PAGE START-UP
-   Runs once the HTML has loaded. Each init function quietly does nothing
-   on pages that don't contain its elements.
+
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", function () {
     /* Tells the CSS that JavaScript is running (enables the mobile menu button) */
