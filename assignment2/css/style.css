@@ -398,7 +398,7 @@ p {
     color: var(--color-accent);
 }
 
-/* Current page highlighting (class + aria-current are set on each page) */
+/* Current page highlighting uses the active class on each page */
 .nav-links a.active,
 .nav-links a.active:hover {
     background-color: var(--color-accent);

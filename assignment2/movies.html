@@ -20,14 +20,14 @@
             <a class="brand" href="index.html">
                 <img src="images/logo.png" alt="CineSpark home" width="360" height="96">
             </a>
-            <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">
-                <span class="nav-toggle-icon" aria-hidden="true"></span>
+            <button type="button" class="nav-toggle" id="navToggle">
+                <span class="nav-toggle-icon"></span>
                 Menu
             </button>
-            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+            <nav class="main-nav" id="mainNav">
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="movies.html" class="active" aria-current="page">Movies</a></li>
+                    <li><a href="movies.html" class="active">Movies</a></li>
                     <li><a href="recommend.html">Recommendations</a></li>
                     <li><a href="register.html">Register</a></li>
                     <li><a href="booking.html">Book Tickets</a></li>
@@ -40,7 +40,7 @@
     <main id="main">
 
         <!-- ========================= PAGE BANNER ========================= -->
-        <section class="page-banner" aria-labelledby="pageHeading">
+        <section class="page-banner">
             <div class="container">
                 <p class="eyebrow">Now screening</p>
                 <h1 id="pageHeading">Movies at CineSpark</h1>
@@ -53,7 +53,7 @@
         </section>
 
         <!-- ========================= MOVIE LIST ========================= -->
-        <section class="section" aria-labelledby="listHeading">
+        <section class="section">
             <div class="container">
                 <h2 id="listHeading" class="visually-hidden">All movies</h2>
 
@@ -379,7 +379,7 @@
         </section>
 
         <!-- ===================== NOT SURE WHAT TO WATCH ===================== -->
-        <section class="section section-alt" aria-labelledby="helpHeading">
+        <section class="section section-alt">
             <div class="container">
                 <div class="cta-band">
                     <h2 id="helpHeading">Not sure what to watch?</h2>
@@ -392,7 +392,7 @@
     </main>
 
     <!-- Small confirmation message used by the watchlist buttons -->
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="toast" class="toast"></div>
 
     <!-- ============================ SITE FOOTER ============================ -->
     <footer class="site-footer">

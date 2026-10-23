@@ -248,8 +248,7 @@ function showToast(message) {
 /* ==========================================================================
    3. NAVIGATION - mobile menu button
    On small screens the menu is collapsed; the button opens and closes it.
-   (The current page is highlighted in the HTML with class="active" and
-   aria-current="page" on its link.)
+   The current page is highlighted with class="active" on its link.
    ========================================================================== */
 function initNavigation() {
     const toggle = document.getElementById("navToggle");
@@ -259,8 +258,7 @@ function initNavigation() {
     }
 
     toggle.addEventListener("click", function () {
-        const isOpen = nav.classList.toggle("is-open");
-        toggle.setAttribute("aria-expanded", String(isOpen));
+        nav.classList.toggle("is-open");
     });
 }
 
@@ -325,7 +323,6 @@ function updateWatchlistCount() {
 function setWatchlistButtonState(button, saved) {
     button.textContent = saved ? "♥ In Watchlist" : "♡ Add to Watchlist";
     button.classList.toggle("is-saved", saved);
-    button.setAttribute("aria-pressed", String(saved));
 }
 
 /* movies.html - every "Add to Watchlist" button adds or removes its movie */
@@ -557,7 +554,7 @@ function createResultCardHTML(result, index) {
                     ${movie.genres.join(" / ")} &middot; ${formatRuntime(movie.runtime)} &middot; ${formatPrice(movie.price)}</p>
                 <div class="match">
                     <span class="match-label">${percent}% match</span>
-                    <span class="match-bar" aria-hidden="true"><span style="width: ${percent}%"></span></span>
+                    <span class="match-bar"><span style="width: ${percent}%"></span></span>
                 </div>
                 <ul class="reasons">${reasonsHTML}</ul>
                 <div class="result-actions">
@@ -675,9 +672,6 @@ function showFieldError(fieldId, message) {
     }
     if (field) {
         field.classList.add("is-invalid");
-        if (field.matches("input, select, textarea")) {
-            field.setAttribute("aria-invalid", "true");
-        }
     }
 }
 
@@ -690,7 +684,6 @@ function clearFieldError(fieldId) {
     }
     if (field) {
         field.classList.remove("is-invalid");
-        field.removeAttribute("aria-invalid");
     }
 }
 

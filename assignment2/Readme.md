@@ -32,7 +32,7 @@ assignment2/
 `-- Readme.md         This file.
 ```
 
-Every page shares the same `<header>` with the logo and the main `<nav>`, uses `<main>`, `<section>`, `<article>`, `<aside>` and `<footer>` elements, and highlights the current page in the navigation (`class="active"` + `aria-current="page"`). On phones the navigation collapses behind a "Menu" button.
+Every page shares the same `<header>` with the logo and the main `<nav>`, uses `<main>`, `<section>`, `<article>`, `<aside>` and `<footer>` elements, and highlights the current page in the navigation (`class="active"`). On phones the navigation collapses behind a "Menu" button.
 
 ### Responsive design (mobile-first CSS)
 

@@ -20,16 +20,16 @@
             <a class="brand" href="index.html">
                 <img src="images/logo.png" alt="CineSpark home" width="360" height="96">
             </a>
-            <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">
-                <span class="nav-toggle-icon" aria-hidden="true"></span>
+            <button type="button" class="nav-toggle" id="navToggle">
+                <span class="nav-toggle-icon"></span>
                 Menu
             </button>
-            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+            <nav class="main-nav" id="mainNav">
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="movies.html">Movies</a></li>
                     <li><a href="recommend.html">Recommendations</a></li>
-                    <li><a href="register.html" class="active" aria-current="page">Register</a></li>
+                    <li><a href="register.html" class="active">Register</a></li>
                     <li><a href="booking.html">Book Tickets</a></li>
                     <li><a href="watchlist.html">Watchlist <span class="watchlist-count" id="watchlistCount">0</span></a></li>
                 </ul>
@@ -40,7 +40,7 @@
     <main id="main">
 
         <!-- ========================= PAGE BANNER ========================= -->
-        <section class="page-banner" aria-labelledby="pageHeading">
+        <section class="page-banner">
             <div class="container">
                 <p class="eyebrow">Free membership</p>
                 <h1 id="pageHeading">Create Your Account</h1>
@@ -49,28 +49,28 @@
         </section>
 
         <!-- ===================== BENEFITS + REGISTRATION FORM ===================== -->
-        <section class="section" aria-labelledby="formHeading">
+        <section class="section">
             <div class="container register-layout">
 
-                <aside class="card" aria-labelledby="benefitsHeading">
+                <aside class="card">
                     <h2 id="benefitsHeading" class="mt-0">Member benefits</h2>
                     <ul class="benefits-list">
                         <li>
-                            <span class="feature-icon" aria-hidden="true">&#10024;</span>
+                            <span class="feature-icon">&#10024;</span>
                             <div>
                                 <h3>Better recommendations</h3>
                                 <p>Your favourite genres help us suggest movies you will love.</p>
                             </div>
                         </li>
                         <li>
-                            <span class="feature-icon" aria-hidden="true">&#9889;</span>
+                            <span class="feature-icon">&#9889;</span>
                             <div>
                                 <h3>Faster booking</h3>
                                 <p>Your contact details are ready whenever you book.</p>
                             </div>
                         </li>
                         <li>
-                            <span class="feature-icon" aria-hidden="true">&#127881;</span>
+                            <span class="feature-icon">&#127881;</span>
                             <div>
                                 <h3>Member news</h3>
                                 <p>Hear about premieres and special screenings first.</p>
@@ -85,7 +85,7 @@
                     <h2 id="formHeading" class="mt-0">Your details</h2>
 
                     <!-- Summary of errors, shown by JavaScript when the form has problems -->
-                    <div id="registerErrors" class="error-summary" role="alert" hidden></div>
+                    <div id="registerErrors" class="error-summary" hidden></div>
 
                     <!-- Account details -->
                     <fieldset class="form-section">
@@ -93,34 +93,34 @@
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="username">Username <span class="required" aria-hidden="true">*</span></label>
+                                <label for="username">Username <span class="required">*</span></label>
                                 <input type="text" id="username" name="username" autocomplete="username" required
-                                       aria-describedby="usernameHint usernameError">
+>
                                 <p class="hint" id="usernameHint">At least 5 characters: letters, numbers and underscores only.</p>
                                 <p class="error-msg" id="usernameError"></p>
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Email address <span class="required" aria-hidden="true">*</span></label>
+                                <label for="email">Email address <span class="required">*</span></label>
                                 <input type="email" id="email" name="email" autocomplete="email" required
-                                       placeholder="name@example.com" aria-describedby="emailError">
+                                       placeholder="name@example.com">
                                 <p class="error-msg" id="emailError"></p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="phone">Phone number <span class="required" aria-hidden="true">*</span></label>
+                            <label for="phone">Phone number <span class="required">*</span></label>
                             <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="numeric" required
-                                   aria-describedby="phoneHint phoneError">
+>
                             <p class="hint" id="phoneHint">Digits only, between 8 and 15 digits (e.g. 0412345678).</p>
                             <p class="error-msg" id="phoneError"></p>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="password">Password <span class="required" aria-hidden="true">*</span></label>
+                                <label for="password">Password <span class="required">*</span></label>
                                 <input type="password" id="password" name="password" autocomplete="new-password" required
-                                       aria-describedby="passwordRules passwordError">
+>
                                 <!-- Live checklist: JavaScript ticks each rule as it is met -->
                                 <ul class="pw-rules" id="passwordRules">
                                     <li data-rule="length">10+ characters</li>
@@ -133,9 +133,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="confirmPassword">Confirm password <span class="required" aria-hidden="true">*</span></label>
+                                <label for="confirmPassword">Confirm password <span class="required">*</span></label>
                                 <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password"
-                                       required aria-describedby="confirmPasswordError">
+                                       required>
                                 <p class="error-msg" id="confirmPasswordError"></p>
                             </div>
                         </div>
@@ -145,8 +145,8 @@
                     <fieldset class="form-section">
                         <legend>About you</legend>
 
-                        <fieldset class="choice-group" id="gender" aria-describedby="genderError">
-                            <legend>Gender <span class="required" aria-hidden="true">*</span></legend>
+                        <fieldset class="choice-group" id="gender">
+                            <legend>Gender <span class="required">*</span></legend>
                             <div class="option-list">
                                 <label class="option"><input type="radio" name="gender" value="female"> Female</label>
                                 <label class="option"><input type="radio" name="gender" value="male"> Male</label>
@@ -156,8 +156,8 @@
                             <p class="error-msg" id="genderError"></p>
                         </fieldset>
 
-                        <fieldset class="choice-group" id="genres" aria-describedby="genresError">
-                            <legend>Preferred movie genre(s) <span class="required" aria-hidden="true">*</span></legend>
+                        <fieldset class="choice-group" id="genres">
+                            <legend>Preferred movie genre(s) <span class="required">*</span></legend>
                             <div class="option-list">
                                 <label class="option"><input type="checkbox" name="genres[]" value="Action"> Action</label>
                                 <label class="option"><input type="checkbox" name="genres[]" value="Comedy"> Comedy</label>
@@ -172,8 +172,8 @@
                         </fieldset>
 
                         <div class="form-group">
-                            <label for="country">Country / Region <span class="required" aria-hidden="true">*</span></label>
-                            <select id="country" name="country" autocomplete="country-name" required aria-describedby="countryError">
+                            <label for="country">Country / Region <span class="required">*</span></label>
+                            <select id="country" name="country" autocomplete="country-name" required>
                                 <option value="">-- Select your country or region --</option>
                                 <option value="Australia">Australia</option>
                                 <option value="New Zealand">New Zealand</option>
