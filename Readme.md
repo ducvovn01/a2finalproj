@@ -3,9 +3,11 @@
 ## CineSpark - Movie Discovery and Ticket Booking Platform
 
 **Student name:** Quang Phu Duc Vo
+
 **Student ID:** 105739480
 
 **Mercury link:** http://mercury.swin.edu.au/cos10005/s105739480/assignment2/index.html
+
 **GitHub repo: [github.com/ducvovn01/a2finalproj.git](https://github.com/ducvovn01/a2finalproj.git)**
 
 ---
