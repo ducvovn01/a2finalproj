@@ -3,10 +3,10 @@
 ## CineSpark - Movie Discovery and Ticket Booking Platform
 
 **Student name:** Quang Phu Duc Vo
-**Student ID:** [STUDENT ID]
+**Student ID:** 105739480
 
-**Mercury link:** http://mercury.swin.edu.au/cos10005/s[STUDENT ID]/assignment2/index.html
-**GitHub repo:** [GITHUB REPOSITORY LINK]
+**Mercury link:** http://mercury.swin.edu.au/cos10005/s105739480/assignment2/index.html
+**GitHub repo: [github.com/ducvovn01/a2finalproj.git](https://github.com/ducvovn01/a2finalproj.git)**
 
 ---
 
@@ -126,13 +126,13 @@ Each result has a "Book this movie" link that pre-fills the booking page.
 
 ## 4. Test Data (Fake - No Real Payment Is Processed)
 
-| Payment method | Value |
-| --- | --- |
-| Voucher code | `123456789012` |
-| Visa | `4111111111111111` |
-| Mastercard | `5555555555554444` |
-| Amex | `378282246310005` |
-| Expiry | Any future month, e.g. `12/29` |
+| Payment method | Value                            |
+| -------------- | -------------------------------- |
+| Voucher code   | `123456789012`                 |
+| Visa           | `4111111111111111`             |
+| Mastercard     | `5555555555554444`             |
+| Amex           | `378282246310005`              |
+| Expiry         | Any future month, e.g. `12/29` |
 
 ---
 
