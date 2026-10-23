@@ -1,43 +1,7 @@
-/* ==========================================================================
-   CineSpark - Main Stylesheet (css/style.css)
-   COS10005 Web Development - Assignment 2
-   Author: Quang Phu Duc Vo
-
-   This one stylesheet is linked to every page of the website.
-
-   Responsive approach: MOBILE-FIRST
-     - Base styles (no media query) are for mobile phones  (<= 767px)
-     - Tablet styles:  @media (min-width: 768px)          (768px - 1023px)
-     - Desktop styles: @media (min-width: 1024px)         (>= 1024px)
-
-   Contents
-     1.  Colour palette and design tokens
-     2.  Base / reset
-     3.  Typography
-     4.  Layout helpers (container, sections, grids, cards)
-     5.  Buttons, badges and tags
-     6.  Header and main navigation
-     7.  Home page
-     8.  Inner page banner
-     9.  Movie listing page
-     10. Forms (shared by register, booking and recommend pages)
-     11. Recommendation page
-     12. Registration page
-     13. Booking page
-     14. Watchlist page (bonus)
-     15. Toast message
-     16. Footer
-     17. Utilities and accessibility helpers
-     18. Responsive - tablet (768px and wider)
-     19. Responsive - desktop (1024px and wider)
-     20. Reduced motion preference
-   ========================================================================== */
 
 
-/* ==========================================================================
-   1. Colour palette and design tokens
-   All colours were checked for WCAG AA contrast against the dark backgrounds.
-   ========================================================================== */
+
+
 :root {
     --color-bg: #0d0f1e;            /* page background (deep navy)          */
     --color-bg-alt: #141731;        /* alternate section background         */
