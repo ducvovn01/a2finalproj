@@ -1,18 +1,4 @@
-/* ==========================================================================
-   CineSpark - script.js
 
-
-   Contents
-     1. Movie data (single source of truth for prices, ratings, sessions)
-     2. General helper functions
-     3. Navigation (mobile menu button)
-     4. Watchlist / Favourites - BONUS (uses sessionStorage)
-     5. Recommendation engine (recommend.html)
-     6. Form validation helpers (shared by register and booking forms)
-     7. Registration form (register.html)
-     8. Booking form (booking.html)
-     9. Page start-up
-   ========================================================================== */
 
 "use strict";
 
@@ -22,7 +8,7 @@
    Every movie is an object with the same properties:
      id       - short unique code; also used in links, e.g. booking.html?movie=neon-orbit
      genres   - the FIRST genre is the main genre, any others are secondary
-     rating   - Australian classification: G, PG, M or MA15+
+     rating   - according to Australian classification: G, PG, M or MA15+
      audience - age groups the film is made for (Child, Teen, Adult)
      viewing  - viewing occasions it suits (Family, Date Night, Friends, Solo)
      price    - full adult ticket price in Australian dollars
@@ -1003,9 +989,7 @@ function updateSessionTimes() {
     }
 }
 
-/* --- 8d. Ticket price and total cost ------------------------------------
-   ticket price = movie's adult price x ticket type rate
-   total cost   = ticket price x number of tickets                          */
+
 function updateBookingCost() {
     const movie = findMovieById(getFieldValue("movie"));
     const ticketType = TICKET_TYPES[getFieldValue("ticketType")] || TICKET_TYPES.adult;
@@ -1032,7 +1016,7 @@ function updateBookingCost() {
         formatPrice(ticketPrice) + " each";
 }
 
-/* --- 8e. Show only the payment fields for the chosen method ------------- */
+
 function setSectionVisible(sectionId, visible) {
     const section = document.getElementById(sectionId);
     section.hidden = !visible;
@@ -1048,7 +1032,7 @@ function togglePaymentFields() {
     setSectionVisible("cardFields", method === "online");
 }
 
-/* Card number length depends on the card type (Amex 15, others 16) */
+
 function updateCardNumberLength() {
     const card = CARD_TYPES[getFieldValue("cardType")];
     const input = document.getElementById("cardNumber");
@@ -1062,7 +1046,7 @@ function updateCardNumberLength() {
     }
 }
 
-/* --- 8f. "Same as email address" checkbox for the billing email -------- */
+
 function syncBillingEmail() {
     const checkbox = document.getElementById("sameAsEmail");
     const billingEmail = document.getElementById("billingEmail");
@@ -1074,7 +1058,7 @@ function syncBillingEmail() {
     }
 }
 
-/* Refreshes every dynamic part of the booking page */
+
 function refreshBookingForm() {
     updateMoviePreview();
     updateSessionTimes();
@@ -1084,7 +1068,7 @@ function refreshBookingForm() {
     syncBillingEmail();
 }
 
-/* --- 8g. Validation rules for the booking form --------------------------- */
+
 function getBookingRules() {
     return {
         fullName: function () {

@@ -1,17 +1,4 @@
-"""
-generate_images.py - builds the original artwork used by the CineSpark website.
 
-Creates these files in assignment2/images/:
-    logo.png, favicon.png       site logo and browser-tab icon
-    hero.jpg                    home page illustration (cinema audience)
-    movie1.jpg ... movie9.jpg   posters for the nine fictional movies
-
-All artwork is drawn from simple shapes and standard Windows fonts using the
-Pillow library, so the website does not use any third-party images.
-
-Usage (from the repository root):
-    python tools/generate_images.py
-"""
 
 import math
 import os
