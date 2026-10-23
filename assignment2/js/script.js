@@ -140,8 +140,8 @@ const CARD_TYPES = {
     amex: { label: "American Express", digits: 15 }
 };
 
-const MAX_TICKETS = 10;                         /* tickets allowed per booking */
-const WATCHLIST_KEY = "cinesparkWatchlist";     /* sessionStorage key          */
+const MAX_TICKETS = 10;                         
+const WATCHLIST_KEY = "cinesparkWatchlist";     
 
 /* Reusable regular expressions for validation */
 const EMAIL_PATTERN = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
@@ -160,12 +160,12 @@ function findMovieById(id) {
     return movie || null;
 }
 
-/* 19.5 -> "$19.50" */
+
 function formatPrice(amount) {
     return "$" + amount.toFixed(2);
 }
 
-/* Rounds money to 2 decimal places to avoid values like 13.200000000000001 */
+
 function roundMoney(amount) {
     return Math.round(amount * 100) / 100;
 }
