@@ -1,3 +1,5 @@
+ 
+
 # COS10005 Web Development - Assignment 2 (Semester 2, 2026)
 
 ## CineSpark - Movie Discovery and Ticket Booking Platform
@@ -17,7 +19,7 @@
 ```
 assignment2/
 |-- index.html        Home page: purpose and values, target users, services,
-|                     how it works, "now showing" preview, call to action.
+|                     how it works, "now premiering" preview, call to action.
 |-- movies.html       Movie listing: 9 movies, each with title, genre, age
 |                     rating, running time, 50-100 word description, poster,
 |                     ticket price, daily sessions, "Book Now" and
@@ -27,7 +29,7 @@ assignment2/
 |-- register.html     Registration form with JavaScript validation.
 |-- booking.html      Booking form with movie pre-fill, live booking cost,
 |                     conditional payment fields and JavaScript validation.
-|-- watchlist.html    BONUS: watchlist / favourites page.
+|-- watchlist.html    BONUS PART: watchlist / favourites page.
 |-- css/style.css     The only stylesheet (linked to every page).
 |-- js/script.js      All JavaScript (linked to every page).
 |-- images/           logo.png, favicon.png, hero.jpg, movie1.jpg - movie9.jpg
